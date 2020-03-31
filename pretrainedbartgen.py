@@ -10,5 +10,5 @@ text = "Milton scrunched his eyes and moodily turned back to his computer like a
 input_ids = tokenizer.batch_encode_plus([text], return_tensors='pt')['input_ids']
 
 input_ids = tokenizer.batch_encode_plus([text], return_tensors='pt')['input_ids']
-output = model.generate(input_ids=input_ids, max_length=5, num_beams=1)
+output = model.generate(input_ids=input_ids,do_sample=True,max_length=50,top_k=5,temperature=0.7)
 print(tokenizer.decode(output[0]))
