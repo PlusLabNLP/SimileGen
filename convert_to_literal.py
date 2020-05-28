@@ -45,6 +45,6 @@ def create_literal(simile):
 	return best_literal
 		
 
-
+print(create_literal('Rare and forgotten words are like a strong spice'))
 
 

@@ -50,3 +50,45 @@ https://drive.google.com/open?id=1FccEsYPUHnjzmX-Y5vjCBeyRt1pLo8FB
 Then untar the file:
 
 tar -xvzf pretrained_models.tar.gz
+
+SET UP DATA PROCESSING FOR SIMILE
+=======================
+
+python scrape_reddit_for_similes.py #Scrapes self labeled similes
+python convert_to_literal.py #Converts simile to literal
+
+
+FINETUNE BART
+==================================
+
+Use data from previous step for fine-tuning BART
+Sample data in simile folder (train.source --> LITERAL , train.target---> SIMILE)
+
+Use the encoder.json and dict.txt already provided as a part of the repo, since it contains additional delimeter tokens relevant for simile generations
+
+
+Now for BPE preprocess:
+sh create_bpe.sh
+
+
+Binarize dataset:
+
+sh preprocess.sh
+
+
+Download Pretrained BART from here:
+
+https://github.com/pytorch/fairseq/tree/4b986c51ed89f9895df2f30e57909301b4a4f19b/examples/bart
+
+Train models:
+
+sh finetune.sh
+
+Update the field BART_PATH to suit where your pretained model.pt file is You can customize MAX_TOKENS and UPDATE_FREQ based on gpu memory / no of gpus
+
+For Inference:
+
+See sample test data in literal.txt
+Output in simile.hypo
+
+python generate.py
