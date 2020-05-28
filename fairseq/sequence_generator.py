@@ -268,9 +268,8 @@ class SequenceGenerator(object):
                     }
 
                 if len(finalized[sent]) < beam_size:
-                    tuhin = get_hypo()
-                    #print(tuhin)
-                    finalized[sent].append(tuhin)
+                    genhypo = get_hypo()
+                    finalized[sent].append(genhypo)
 
             newly_finished = []
             for sent, unfin_idx in sents_seen:
