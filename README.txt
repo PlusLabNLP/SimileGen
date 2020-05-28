@@ -52,7 +52,7 @@ Then untar the file:
 tar -xvzf pretrained_models.tar.gz
 
 SET UP DATA PROCESSING FOR SIMILE
-=======================
+==================================
 
 python scrape_reddit_for_similes.py #Scrapes self labeled similes
 python convert_to_literal.py #Converts simile to literal
