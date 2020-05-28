@@ -221,7 +221,6 @@ class TranslationTask(FairseqTask):
         )
 
     def build_dataset_for_inference(self, src_tokens, src_lengths):
-        print("Source dictionary is ",self.source_dictionary.save("/nas/home/tuhinc/fairseq/tuhin.txt"))
         return LanguagePairDataset(src_tokens, src_lengths, self.source_dictionary)
 
     def max_positions(self):
