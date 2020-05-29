@@ -89,6 +89,9 @@ Update the field BART_PATH to suit where your pretained model.pt file is You can
 For Inference:
 
 See sample test data in literal.txt
-Output in simile.hypo
+Output will be in simile.hypo
+
+We also included outputs by all system of 10 literal inputs in literal.txt in human_labels.csv.
+The auto eval script is also available
 
 python generate.py
